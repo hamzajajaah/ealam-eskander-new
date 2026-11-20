@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>EALAM ESKANDER | Official</title>
+
+<style>
+:root{
+  --red:#e50925;
+  --red2:#ff263f;
+  --bg:#080808;
+  --card:#151515;
+  --muted:#aaa;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial,Tahoma,sans-serif;
+}
+button,a{font-family:inherit}
+a{text-decoration:none;color:inherit}
+header{
+  position:sticky;top:0;z-index:50;
+  background:#080808ed;
+  border-bottom:1px solid #292929;
+  backdrop-filter:blur(12px);
+}
+.top{
+  max-width:1150px;margin:auto;padding:15px 18px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-size:20px;font-weight:900;letter-spacing:1px;
+}
+.logo span{color:var(--red)}
+.menu-btn{
+  background:var(--red);border:0;color:white;
+  padding:10px 15px;border-radius:9px;cursor:pointer;
+}
+nav{
+  display:none;padding:10px 18px 18px;
+  max-width:1150px;margin:auto;
+  flex-wrap:wrap;gap:9px;
+}
+nav.show{display:flex}
+nav a{
+  background:#1b1b1b;padding:9px 13px;
+  border-radius:8px;font-size:13px;color:#ddd;
+}
+nav a:hover{background:var(--red);color:white}
+.container{max-width:1150px;margin:auto;padding:20px}
+.hero{
+  min-height:390px;border-radius:20px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:35px 20px;
+  background:
+  linear-gradient(120deg,#050505 15%,#35000b 65%,#090909);
+  border:1px solid #4b111b;
+  position:relative;
+}
+.hero:before{
+  content:"";position:absolute;width:280px;height:280px;
+  background:#e50925;filter:blur(130px);opacity:.25;
+  top:10px;right:10%;
+}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-size:clamp(30px,7vw,58px);margin:10px 0}
+.hero h1 span{color:var(--red)}
+.hero p{color:#ccc;line-height:1.9}
+.tag{
+  display:inline-block;background:#330a12;color:#ff6477;
+  border:1px solid #8a1a2c;padding:7px 13px;
+  border-radius:30px;font-size:12px;
+}
+.btn{
+  display:inline-block;background:var(--red);color:white;
+  padding:12px 20px;border:0;border-radius:10px;
+  cursor:pointer;font-weight:bold;margin:5px;
+}
+.btn:hover{background:#b90019}
+.btn.secondary{background:#252525;border:1px solid #444}
+.section-title{
+  font-size:25px;margin:38px 0 18px;
+  border-right:4px solid var(--red);padding-right:12px;
+}
+.profile{
+  display:flex;align-items:center;gap:18px;
+  background:var(--card);padding:22px;border-radius:16px;
+  border:1px solid #292929;
+}
+.avatar{
+  width:85px;height:85px;flex-shrink:0;
+  border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,#50000d,#ed102d);
+  border:3px solid #ff344b;font-size:28px;font-weight:900;
+}
+.profile p{color:var(--muted);line-height:1.7}
+.clock-card{
+  background:var(--card);border:1px solid #333;
+  border-radius:16px;padding:20px;text-align:center;
+}
+.clock{
+  width:150px;height:150px;border:5px solid #a90c24;
+  border-radius:50%;margin:10px auto 18px;
+  position:relative;background:radial-gradient(#242424,#080808);
+  box-shadow:0 0 25px #e5092530;
+}
+.clock:after{
+  content:"";position:absolute;width:9px;height:9px;
+  background:white;border-radius:50%;left:calc(50% - 4.5px);
+  top:calc(50% - 4.5px);z-index:5;
+}
+.hand{
+  position:absolute;bottom:50%;left:50%;
+  transform-origin:bottom;border-radius:5px;
+}
+.hour{width:5px;height:38px;background:white}
+.minute{width:3px;height:54px;background:#ff4059}
+.second{width:2px;height:59px;background:#e50925}
+.cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
+  gap:16px;
+}
+.card{
+  background:var(--card);border:1px solid #303030;
+  border-radius:16px;overflow:hidden;transition:.2s;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--red)}
+.banner{
+  height:115px;display:flex;align-items:center;
+  justify-content:center;text-align:center;
+  background:linear-gradient(125deg,#080808,#650016,#160007);
+  font-size:25px;font-weight:900;color:white;
+  border-bottom:1px solid #4c101c;
+}
+.card-body{padding:17px}
+.card h3{margin:0 0 10px}
+.card p{font-size:13px;color:#bbb;line-height:1.8;min-height:45px}
+.price{color:#ff5369;font-weight:bold;font-size:18px}
+.status{
+  display:inline-block;padding:5px 10px;border-radius:20px;
+  background:#17351f;color:#8be3a0;font-size:11px;
+}
+.status.paid{background:#3a2020;color:#ff9ba8}
+.card .btn{width:100%;text-align:center;margin:8px 0 0}
+.panel{
+  display:none;background:#101010;border:1px solid #3c171e;
+  border-radius:16px;padding:22px;margin-top:18px;
+}
+.panel.active{display:block}
+.panel h3{color:#ff5369}
+.panel p,.panel li{color:#ccc;line-height:1.9}
+.login-box{
+  max-width:430px;margin:25px auto;background:var(--card);
+  padding:25px;border:1px solid #49202a;border-radius:16px;
+}
+input{
+  width:100%;padding:13px;margin:8px 0 14px;
+  background:#090909;border:1px solid #444;
+  border-radius:9px;color:white;font-size:15px;
+}
+label{font-size:13px;color:#ddd}
+.notice{
+  background:#25171a;border:1px solid #71303c;
+  color:#ffc4cc;padding:13px;border-radius:10px;
+  font-size:13px;line-height:1.8;
+}
+footer{
+  text-align:center;padding:30px 15px;
+  margin-top:45px;background:#111;border-top:1px solid #333;
+  color:#999;font-size:13px;line-height:2;
+}
+.hidden{display:none!important}
+@media(max-width:600px){
+  .profile{align-items:flex-start}
+  .hero{min-height:330px}
+  .container{padding:14px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="top">
+    <div class="logo">EALAM <span>ESKANDER</span></div>
+    <button class="menu-btn" onclick="toggleMenu()">القائمة ☰</button>
+  </div>
+  <nav id="nav">
+    <a href="#home">الرئيسية</a>
+    <a href="#profile">الملف الشخصي</a>
+    <a href="#services">الأقسام</a>
+    <a href="#clock">الساعة</a>
+    <a href="#login">تسجيل الدخول</a>
+    <a href="#contact">تواصل معي</a>
+  </nav>
+</header>
+
+<main class="container">
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="tag">OFFICIAL WEBSITE</span>
+    <h1>EALAM <span>ESKANDER</span></h1>
+    <p>
+      عالم التكنولوجيا والبرمجة والخدمات الرقمية
+      <br>
+      كل خدماتك ودروسك في مكان واحد
+    </p>
+    <a href="#services" class="btn">اكتشف الأقسام</a>
+    <a href="#login" class="btn secondary">تسجيل الدخول</a>
+  </div>
+</section>
+
+<section id="profile">
+  <h2 class="section-title">الملف الشخصي</h2>
+  <div class="profile">
+    <div class="avatar">E</div>
+    <div>
+      <h2>EALAM ESKANDER</h2>
+      <p>الموقع الرسمي للخدمات الرقمية والتعليم التقني.</p>
+      <span class="tag">OFFICIAL PROFILE</span>
+    </div>
+  </div>
+</section>
+
+<section id="clock">
+  <h2 class="section-title">التوقيت المحلي</h2>
+  <div class="clock-card">
+    <div class="clock">
+      <div class="hand hour" id="hour"></div>
+      <div class="hand minute" id="minute"></div>
+      <div class="hand second" id="second"></div>
+    </div>
+    <h3 id="digital">--:--:--</h3>
+    <p id="date" style="color:#aaa"></p>
+    <span class="tag">CAIRO TIME</span>
+  </div>
+</section>
+
+<section id="login">
+  <h2 class="section-title">حساب الزائر</h2>
+  <div class="login-box">
+    <h2 style="text-align:center">تسجيل الدخول</h2>
+    <p style="text-align:center;color:#aaa;font-size:13px">
+      سجّل دخولك للوصول إلى واجهة الأقسام
+    </p>
+    <label>اسم المستخدم</label>
+    <input id="username" type="text" placeholder="اكتب اسم المستخدم">
+    <label>كلمة المرور</label>
+    <input id="password" type="password" placeholder="اكتب كلمة المرور">
+    <button class="btn" style="width:100%" onclick="login()">دخول</button>
+    <button class="btn secondary" style="width:100%" onclick="logout()">تسجيل الخروج</button>
+    <p id="loginMessage" style="text-align:center;color:#ff6477"></p>
+    <div class="notice">
+      هذه نسخة تجريبية للواجهة فقط. لا تستخدم كلمة مرور حقيقية هنا؛
+      نظام الحسابات الآمن يحتاج إلى خادم وقاعدة بيانات.
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h2 class="section-title">أقسام الموقع</h2>
+  <div class="notice">
+    الأقسام المجانية متاحة من خلال روابط التواصل.
+    الأقسام المدفوعة تحتاج إلى تأكيد الاشتراك بعد التواصل وإتمام الدفع.
+  </div>
+
+  <div class="cards" style="margin-top:18px">
+
+    <article class="card">
+      <div class="banner">استخراج الصور</div>
+      <div class="card-body">
+        <h3>استخراج الصور</h3>
+        <p>تواصل معي لطلب المساعدة في استخراج الصور والملفات التي تخصك.</p>
+        <span class="status">مجاني</span>
+        <a class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1">الدخول للقسم</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">SOFTWARE</div>
+      <div class="card-body">
+        <h3>قسم السوفت وير</h3>
+        <p>تواصل معي للاستفسارات والمساعدة التقنية.</p>
+        <span class="status">مجاني</span>
+        <a class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1">تواصل الآن</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">سحب البيانات</div>
+      <div class="card-body">
+        <h3>قسم سحب البيانات</h3>
+        <p>مساعدة في التعامل مع بياناتك وملفاتك المسموح لك بالوصول إليها.</p>
+        <span class="status">مجاني</span>
+        <a class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1">تواصل الآن</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">الحماية والدعم</div>
+      <div class="card-body">
+        <h3>مساعدة البنات من التهديد</h3>
+        <p>دعم وإرشاد للإبلاغ عن التهديدات وحماية الخصوصية والحسابات.</p>
+        <span class="status">مجاني</span>
+        <a class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1">طلب المساعدة</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">PROGRAMMING</div>
+      <div class="card-body">
+        <h3>تعليم البرمجة</h3>
+        <p>تعلم HTML وCSS وJavaScript وPython من البداية.</p>
+        <div class="price">200 جنيه</div>
+        <span class="status paid">اشتراك مدفوع</span>
+        <button class="btn" onclick="openCourse('programming')">تفاصيل الاشتراك</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">TERMUX</div>
+      <div class="card-body">
+        <h3>تعليم Termux</h3>
+        <p>تعلم أساسيات الطرفية وأوامر Linux والبرمجة بشكل آمن.</p>
+        <div class="price">500 جنيه</div>
+        <span class="status paid">اشتراك مدفوع</span>
+        <button class="btn" onclick="openCourse('termux')">تفاصيل الاشتراك</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">TRADING</div>
+      <div class="card-body">
+        <h3>تعليم التداول</h3>
+        <p>محتوى تعليمي للتعرف على أساسيات الأسواق والمخاطر.</p>
+        <div class="price">700 جنيه</div>
+        <span class="status paid">اشتراك مدفوع</span>
+        <button class="btn" onclick="openCourse('trading')">تفاصيل الاشتراك</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">WHATSAPP</div>
+      <div class="card-body">
+        <h3>نسخ واتساب</h3>
+        <p>WhatsApp Plus ASKANDER</p>
+        <span class="status">مجاني</span>
+        <a class="btn" href="https://blue.watsplus.app/">فتح القسم</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">TELEGRAM</div>
+      <div class="card-body">
+        <h3>نسخ تليجرام</h3>
+        <p>Telegram Premium</p>
+        <span class="status">مجاني</span>
+        <a class="btn" href="https://app.traidsoft.net/download-telegram-premium/">فتح القسم</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">COMMUNITY</div>
+      <div class="card-body">
+        <h3>جروب الموقع</h3>
+        <p>انضم إلى مجتمع EALAM ESKANDER.</p>
+        <span class="status">مجاني</span>
+        <a class="btn" href="https://chat.whatsapp.com/CMPhrKzsfO8JZtoXWYlg79?s=cl&p=i&iam=2">دخول الجروب</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">TELEGRAM CHANNEL</div>
+      <div class="card-body">
+        <h3>قناة التليجرام</h3>
+        <p>تابع آخر المنشورات والتحديثات.</p>
+        <span class="status">مجاني</span>
+        <a class="btn" href="https://t.me/migtalk33/1058">زيارة القناة</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="banner">CONTACT</div>
+      <div class="card-body">
+        <h3>تواصل معي</h3>
+        <p>للاستفسارات والاشتراكات وطلب المساعدة.</p>
+        <span class="status">متاح</span>
+        <a class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1">راسلني الآن</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="coursePanel" class="panel">
+  <h2 class="section-title">تفاصيل الاشتراك</h2>
+  <h3 id="courseTitle"></h3>
+  <p id="courseDescription"></p>
+  <p id="coursePrice" class="price"></p>
+  <div class="notice">
+    للتسجيل في هذا القسم، تواصل معي أولًا لإتمام الدفع.
+    يتم فتح المحتوى بعد التأكد من الدفع وتفعيل الاشتراك.
+  </div>
+  <a id="paymentLink" class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1">
+    التواصل لإتمام الاشتراك
+  </a>
+  <button class="btn secondary" onclick="closeCourse()">إغلاق</button>
+  <div id="courseContent" class="panel">
+    <h3>محتوى القسم</h3>
+    <p>سيتم وضع الدروس الكاملة هنا بعد إعداد نظام الاشتراكات الآمن.</p>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <h2 style="color:white">EALAM <span style="color:#e50925">ESKANDER</span></h2>
+  <p>الموقع الرسمي للخدمات الرقمية والتعليم التقني</p>
+  <a class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1">تواصل معي عبر واتساب</a>
+  <p>© 2026 EALAM ESKANDER - All Rights Reserved</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("show");
+}
+
+// واجهة دخول تجريبية فقط وليست نظام حسابات آمن
+function login(){
+  const user=document.getElementById("username").value.trim();
+  const pass=document.getElementById("password").value;
+  const msg=document.getElementById("loginMessage");
+
+  if(!user || !pass){
+    msg.textContent="من فضلك اكتب اسم المستخدم وكلمة المرور";
+    return;
+  }
+
+  sessionStorage.setItem("demoUser",user);
+  msg.textContent="تم تسجيل الدخول للواجهة التجريبية باسم "+user;
+}
+
+function logout(){
+  sessionStorage.removeItem("demoUser");
+  document.getElementById("loginMessage").textContent="تم تسجيل الخروج";
+  document.getElementById("password").value="";
+}
+
+const courses={
+  programming:{
+    title:"تعليم البرمجة",
+    price:"200 جنيه",
+    description:"تعلم أساسيات البرمجة وتصميم صفحات الويب باستخدام HTML وCSS وJavaScript، بالإضافة إلى مقدمة في Python."
+  },
+  termux:{
+    title:"تعليم Termux",
+    price:"500 جنيه",
+    description:"تعلم أساسيات Linux والطرفية وإدارة الملفات وأدوات البرمجة والاستخدامات التعليمية الآمنة."
+  },
+  trading:{
+    title:"تعليم التداول",
+    price:"700 جنيه",
+    description:"تعرف على مفاهيم الأسواق المالية والتحليل وإدارة المخاطر. المحتوى تعليمي ولا يضمن أرباحًا."
+  }
+};
+
+function openCourse(name){
+  const course=courses[name];
+  document.getElementById("courseTitle").textContent=course.title;
+  document.getElementById("courseDescription").textContent=course.description;
+  document.getElementById("coursePrice").textContent=course.price;
+  document.getElementById("coursePanel").classList.add("active");
+  document.getElementById("coursePanel").scrollIntoView({behavior:"smooth"});
+}
+
+function closeCourse(){
+  document.getElementById("coursePanel").classList.remove("active");
+}
+
+// ساعة عقارب بتوقيت القاهرة
+function updateClock(){
+  const now=new Date();
+  const parts=new Intl.DateTimeFormat("en-US",{
+    timeZone:"Africa/Cairo",
+    hour:"2-digit",minute:"2-digit",second:"2-digit",
+    hour12:false
+  }).formatToParts(now);
+
+  const get=(type)=>Number(parts.find(p=>p.type===type).value);
+  const h=get("hour"),m=get("minute"),s=get("second");
+
+  document.getElementById("hour").style.transform=
+    `translateX(-50%) rotate(${(h%12)*30+m*.5}deg)`;
+  document.getElementById("minute").style.transform=
+    `translateX(-50%) rotate(${m*6+s*.1}deg)`;
+  document.getElementById("second").style.transform=
+    `translateX(-50%) rotate(${s*6}deg)`;
+
+  document.getElementById("digital").textContent=
+    [h,m,s].map(v=>String(v).padStart(2,"0")).join(":");
+
+  document.getElementById("date").textContent=
+    new Intl.DateTimeFormat("ar-EG",{
+      timeZone:"Africa/Cairo",
+      weekday:"long",year:"numeric",month:"long",day:"numeric"
+    }).format(now);
+}
+
+updateClock();
+setInterval(updateClock,1000);
+</script>
+
+</body>
+</html>
