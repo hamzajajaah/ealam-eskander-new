@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030817">
+<title>EALAM ESKANDER | عالم التكنولوجيا</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: #030817;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  padding: 25px 15px;
+  text-align: center;
+  background: radial-gradient(circle at top,#123b75,#030817 75%);
+  border-bottom: 1px solid #087fff;
+}
+
+.crown {
+  font-size: 35px;
+}
+
+.logo {
+  font-size: clamp(25px,6vw,48px);
+  font-weight: bold;
+  color: #42baff;
+  text-shadow: 0 0 20px #078bff;
+  direction: ltr;
+}
+
+header p {
+  color: #d9eaff;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 13px 8px;
+  background: #050d20;
+  border-bottom: 1px solid #0756a5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: white;
+  background: #0b1c38;
+  border: 1px solid #087fff;
+  padding: 7px 12px;
+  border-radius: 25px;
+  font-size: 13px;
+  transition: .3s;
+}
+
+nav a:hover {
+  background: #087fff;
+  box-shadow: 0 0 15px #087fff;
+}
+
+.hero {
+  min-height: 420px;
+  padding: 65px 20px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 15% 60%,#07366b 0%,transparent 40%),
+    radial-gradient(ellipse at 85% 40%,#092b62 0%,transparent 40%),
+    linear-gradient(135deg,#020617,#071a39,#020617);
+  border-bottom: 1px solid #087fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .tag {
+  color: #49c5ff;
+  border: 1px solid #087fff;
+  padding: 5px 18px;
+  border-radius: 30px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(27px,6vw,48px);
+  color: white;
+}
+
+.hero h1 span {
+  display: block;
+  color: #20aaff;
+  direction: ltr;
+  text-shadow: 0 0 20px #087fff;
+}
+
+.hero p {
+  color: #c8ddf5;
+  margin: 15px 0 22px;
+}
+
+.hero-code {
+  direction: ltr;
+  background: #06152c;
+  border: 1px solid #078bff;
+  border-radius: 15px;
+  padding: 18px;
+  width: min(100%,430px);
+  margin: 20px auto;
+  text-align: left;
+  box-shadow: 0 0 25px #006eff33;
+  color: #55c5ff;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+.hero-code span {
+  color: #62e5ae;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg,#087fff,#04baff);
+  color: white;
+  padding: 10px 23px;
+  border-radius: 30px;
+  margin: 5px;
+  font-weight: bold;
+  box-shadow: 0 0 15px #087fff66;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #087fff;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #087fff;
+}
+
+section {
+  padding: 45px 15px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(23px,5vw,32px);
+  color: #40baff;
+  margin-bottom: 12px;
+  text-shadow: 0 0 15px #087fff66;
+}
+
+.section-desc {
+  text-align: center;
+  color: #b8cee8;
+  margin-bottom: 30px;
+}
+
+.cards {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 18px;
+}
+
+.card {
+  background: linear-gradient(145deg,#0c1e3c,#050d20);
+  border: 1px solid #087fff;
+  border-radius: 17px;
+  padding: 23px 15px;
+  text-align: center;
+  transition: .3s;
+  box-shadow: 0 0 15px #006eff16;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 22px #087fff55;
+}
+
+.card .emoji {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  color: #5cc7ff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #c6d7eb;
+  font-size: 14px;
+}
+
+.academy {
+  background: linear-gradient(180deg,#06142b,#030817);
+  border-top: 1px solid #087fff;
+  border-bottom: 1px solid #087fff;
+}
+
+.course {
+  background: #07152c;
+  border: 1px solid #087fff;
+  border-radius: 13px;
+  padding: 18px;
+  margin: 12px auto;
+  max-width: 850px;
+}
+
+.course h3 {
+  color: #49bdff;
+  margin-bottom: 8px;
+}
+
+.course p {
+  color: #c3d8ef;
+}
+
+details {
+  background: #0d2343;
+  padding: 12px;
+  border-radius: 9px;
+  margin-top: 10px;
+}
+
+summary {
+  color: #65caff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.course pre {
+  direction: ltr;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  background: #020817;
+  color: #65e6b3;
+  padding: 13px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.free-banner {
+  max-width: 850px;
+  margin: 25px auto 0;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid #087fff;
+  border-radius: 15px;
+  background: #081b38;
+}
+
+.free-banner h3 {
+  color: #48baff;
+}
+
+.contact-box {
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  background: #0a1931;
+  border: 1px solid #087fff;
+  padding: 30px 15px;
+  border-radius: 18px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  background: #020611;
+  border-top: 1px solid #087fff;
+  color: #b9cee6;
+}
+
+footer .logo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.social {
+  margin: 15px;
+  font-size: 25px;
+}
+
+.social a {
+  margin: 8px;
+}
+
+@media(max-width:600px) {
+  nav a {
+    font-size: 11px;
+    padding: 6px 9px;
+  }
+
+  .hero {
+    min-height: 380px;
+    padding: 45px 15px;
+  }
+
+  section {
+    padding: 35px 12px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="crown">👑</div>
+  <div class="logo">EALAM ESKANDER</div>
+  <p>عالم التكنولوجيا والبرمجة</p>
+</header>
+
+<nav>
+  <a href="#home">🏠 الرئيسية</a>
+  <a href="#whatsapp">واتساب</a>
+  <a href="#telegram">تليجرام</a>
+  <a href="#software">السوفت وير</a>
+  <a href="#programming">البرمجة</a>
+  <a href="#termux">ترمكس</a>
+  <a href="#academy">الأكاديمية</a>
+  <a href="#contact">تواصل معنا</a>
+</nav>
+
+<div class="hero" id="home">
+  <div class="tag">مرحباً بك في عالم التكنولوجيا</div>
+  <h1>أهلاً بك في <span>EALAM ESKANDER</span></h1>
+  <p>تعلم - اكتشف - طور مهاراتك</p>
+
+  <div class="hero-code">
+    <span>// Welcome to Eskander Academy</span><br>
+    const future = "Your Success";<br>
+    console.log("Start Learning!");
+  </div>
+
+  <div>
+    <a class="btn" href="#academy">🎓 ابدأ التعلم مجاناً</a>
+    <a class="btn btn-outline" href="#contact">تواصل معنا</a>
+  </div>
+</div>
+
+<section id="whatsapp">
+  <h2 class="section-title">نسخ واتساب</h2>
+  <p class="section-desc">نسخ واتساب وخدماتنا</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">🟢</div>
+      <h3>WhatsApp Plus ASKANDER</h3>
+      <p>صفحة النسخة ومعلوماتها.</p>
+      <a class="btn" href="https://blue.watsplus.app/" target="_blank" rel="noopener noreferrer">زيارة الصفحة</a>
+    </div>
+  </div>
+</section>
+
+<section id="telegram">
+  <h2 class="section-title">نسخ تليجرام</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">✈️</div>
+      <h3>Telegram Premium</h3>
+      <p>صفحة نسخة تليجرام.</p>
+      <a class="btn" href="https://app.traidsoft.net/download-telegram-premium/" target="_blank" rel="noopener noreferrer">زيارة الصفحة</a>
+    </div>
+  </div>
+</section>
+
+<section id="software">
+  <h2 class="section-title">قسم السوفت وير</h2>
+  <p class="section-desc">خدمات السوفت وير والتواصل المباشر</p>
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">🛠️</div>
+      <h3>خدمات السوفت وير</h3>
+      <p>للاستفسار عن الخدمات والدعم الفني.</p>
+      <a class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1" target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a>
+    </div>
+  </div>
+</section>
+
+<section id="programming">
+  <h2 class="section-title">تعليم البرمجة</h2>
+  <p class="section-desc">تعلم أساسيات تطوير المواقع والتطبيقات</p>
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">🌐</div>
+      <h3>HTML</h3>
+      <p>بناء صفحات المواقع.</p>
+      <a class="btn" href="#academy">ابدأ الآن</a>
+    </div>
+    <div class="card">
+      <div class="emoji">🎨</div>
+      <h3>CSS</h3>
+      <p>تصميم وتنسيق المواقع.</p>
+      <a class="btn" href="#academy">ابدأ الآن</a>
+    </div>
+    <div class="card">
+      <div class="emoji">⚡</div>
+      <h3>JavaScript</h3>
+      <p>إضافة التفاعل للمواقع.</p>
+      <a class="btn" href="#academy">ابدأ الآن</a>
+    </div>
+    <div class="card">
+      <div class="emoji">🐍</div>
+      <h3>Python</h3>
+      <p>تعلم البرمجة من الصفر.</p>
+      <a class="btn" href="#academy">ابدأ الآن</a>
+    </div>
+  </div>
+</section>
+
+<section id="termux">
+  <h2 class="section-title">تعليم Termux</h2>
+  <p class="section-desc">تعلم الطرفية وأساسيات Linux ومشاريع تعليمية آمنة</p>
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">🐧</div>
+      <h3>مقدمة Termux</h3>
+      <p>التعرف على التطبيق والطرفية.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">💻</div>
+      <h3>أساسيات Linux</h3>
+      <p>الملفات والمجلدات والأوامر الأساسية.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🐍</div>
+      <h3>Python على Termux</h3>
+      <p>كتابة وتشغيل برامج تعليمية.</p>
+    </div>
+  </div>
+</section>
+
+<section class="academy" id="academy">
+  <h2 class="section-title">👑 أكاديمية إسكندر الأكبر</h2>
+  <p class="section-desc">تعلم البرمجة من الصفر مجاناً وباللغة العربية</p>
+
+  <div class="free-banner">
+    <h3>مرحباً بك في EALAM ESKANDER Academy</h3>
+    <p>ابدأ رحلتك التعليمية واكتسب مهارات جديدة خطوة بخطوة.</p>
+    <p>جميع الدورات مجانية للجميع.</p>
+  </div>
+
+  <div class="course">
+    <h3>01 - دورة HTML</h3>
+    <p>تعلم بناء صفحات المواقع من البداية.</p>
+    <details>
+      <summary>الدرس الأول: إنشاء أول صفحة</summary>
+      <p>HTML هي لغة بناء هيكل صفحات الويب.</p>
+      <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ar"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;موقعي الأول&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;مرحباً بالعالم&lt;/h1&gt;
+&lt;p&gt;هذه أول صفحة لي&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </details>
+    <details>
+      <summary>الدرس الثاني: العناوين والفقرات</summary>
+      <pre>&lt;h1&gt;عنوان رئيسي&lt;/h1&gt;
+&lt;h2&gt;عنوان فرعي&lt;/h2&gt;
+&lt;p&gt;هذه فقرة تعليمية&lt;/p&gt;</pre>
+    </details>
+    <details>
+      <summary>الدرس الثالث: الروابط والصور</summary>
+      <pre>&lt;a href="https://example.com"&gt;افتح الموقع&lt;/a&gt;
+&lt;img src="photo.jpg" alt="صورة"&gt;</pre>
+    </details>
+  </div>
+
+  <div class="course">
+    <h3>02 - دورة CSS</h3>
+    <p>تعلم تصميم المواقع والألوان والخطوط.</p>
+    <details>
+      <summary>الدرس الأول: الألوان</summary>
+      <pre>body {
+  background: #080d18;
+  color: white;
+}
+h1 {
+  color: #45a3ff;
+}</pre>
+    </details>
+    <details>
+      <summary>الدرس الثاني: تنسيق الأزرار</summary>
+      <pre>button {
+  background: #1684ed;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+}</pre>
+    </details>
+  </div>
+
+  <div class="course">
+    <h3>03 - دورة JavaScript</h3>
+    <p>تعلم إضافة التفاعل والوظائف للمواقع.</p>
+    <details>
+      <summary>الدرس الأول: المتغيرات</summary>
+      <pre>let name = "Eskander";
+let age = 17;
+console.log(name);
+console.log(age);</pre>
+    </details>
+    <details>
+      <summary>الدرس الثاني: الدوال</summary>
+      <pre>function welcome() {
+  alert("أهلاً بك");
+}
+welcome();</pre>
+    </details>
+  </div>
+
+  <div class="course">
+    <h3>04 - دورة Python</h3>
+    <p>تعلم أساسيات لغة Python.</p>
+    <details>
+      <summary>الدرس الأول: الطباعة</summary>
+      <pre>print("Hello World")
+print("EALAM ESKANDER")</pre>
+    </details>
+    <details>
+      <summary>الدرس الثاني: المتغيرات</summary>
+      <pre>name = "Eskander"
+age = 17
+print(name)
+print(age)</pre>
+    </details>
+  </div>
+
+  <div class="course">
+    <h3>05 - دورة GitHub</h3>
+    <p>تعلم حفظ مشاريعك وإدارة الملفات ونشر المواقع.</p>
+    <details>
+      <summary>ماذا ستتعلم؟</summary>
+      <p>إنشاء Repository ورفع الملفات وحفظ التعديلات واستخدام GitHub Pages.</p>
+    </details>
+  </div>
+
+  <div class="free-banner">
+    <h3>التعليم مجاني للجميع ❤️</h3>
+    <p>ابدأ رحلتك في عالم البرمجة مع EALAM ESKANDER.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">تواصل معنا</h2>
+  <div class="contact-box">
+    <h3 class="logo">EALAM ESKANDER</h3>
+    <p>للاستفسارات والمساعدة والدعم الفني.</p>
+    <a class="btn" href="https://wa.me/message/CLCU6TTOLSD5H1" target="_blank" rel="noopener noreferrer">واتساب</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">EALAM ESKANDER</div>
+  <p>معاً نحو مستقبل أفضل ⭐</p>
+  <div class="social">
+    <a href="https://wa.me/message/CLCU6TTOLSD5H1" aria-label="واتساب">🟢</a>
+    <a href="https://t.me/migtalk33/1058" aria-label="تليجرام">✈️</a>
+  </div>
+  <p>© 2026 EALAM ESKANDER</p>
+  <p>جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>
